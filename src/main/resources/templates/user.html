@@ -157,6 +157,11 @@
     <div class="container">
         <h1>User Dashboard</h1>
         <h2>Welcome, <span th:text="${user.getFullname()}"></span></h2>
+        <h3>  -----------  Admin login ---------- (for accessing you sir)
+        email: admin@gmail.com
+        password : 123    
+</h3>
+       
 
         <div sec:authorize="isAuthenticated()">
            
