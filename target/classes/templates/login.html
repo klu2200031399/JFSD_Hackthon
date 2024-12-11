@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+    /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc; /* Light, calm background color */
+    color: #333; /* Dark gray text for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff; /* Clean white background for the form */
+    border-radius: 10px; /* Soft rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    color: #4A90E2; /* A blue color that stands out */
+    margin-bottom: 20px;
+}
+
+/* Error and Logout Messages */
+.message {
+    color: #D32F2F; /* Red for error message */
+    background-color: #F8D7DA; /* Light red background */
+    border: 1px solid #F5C6CB; /* Red border to signify error */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input Fields */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fafafa;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* Input Fields Focus */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4A90E2; /* Blue border when focused */
+    outline: none;
+    background-color: #fff;
+}
+
+/* Submit Button */
+.form-buttons input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4A90E2; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-buttons input[type="submit"]:hover {
+    background-color: #357ABD; /* Darker blue when hovered */
+}
+
+/* No Account Section */
+.no-account p {
+    color: #555;
+    font-size: 14px;
+}
+
+.no-account a {
+    color: #4A90E2;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.no-account a:hover {
+    color: #357ABD; /* Darker blue on hover */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Error Message -->
+        <div class="message" th:if="${param.error}">
+            Invalid Username or Password
+        </div>
+        
+        <!-- Logout Message -->
+        <div class="message" th:if="${param.logout}">
+            Logout Successfully
+        </div>
+        
+        <!-- Form Heading -->
+        <h2>Admin and User Login Page</h2>
+
+        <!-- Login Form -->
+        <form 
+            th:action="@{/login}"
+            method="post">
+            <!-- Email -->
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="email" id="username" name="username" placeholder="Enter your email" required>
+            </div>
+            
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="form-buttons">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+
+        <!-- No Account Section -->
+        <div class="no-account">
+            <p>Don’t have an account? 
+                <a th:href="@{/registration}" class="btn btn-secondary">Go to Register</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

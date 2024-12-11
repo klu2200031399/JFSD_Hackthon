@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyScholarships - Home</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css'>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            padding: 8px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .btn-round {
+            border-radius: 30px;
+        }
+
+        .page-header {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .filter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+        }
+
+        .content-center {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .presentation-title {
+            color: #fff;
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        .presentation-subtitle {
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .fog-low img {
+            max-width: 100%;
+        }
+
+        .moving-clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-transparent">
+        <div class="container">
+            <div class="navbar-translate">
+                <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">MyScholarships</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" target="_blank">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration" target="_blank">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" target="_blank">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" href="https://twitter.com/" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" href="https://www.instagram.com/" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="page-header section-dark" style="background-image: url('https://julesverne.ontigerbay.co.uk/content/Default/Pictures/limestone-rocks-at-ha-long-bay-vietnam.jpg')">
+            <div class="filter"></div>
+            <div class="content-center">
+                <div class="container">
+                    <div class="title-brand">
+                        <h1 class="presentation-title">MyScholarships</h1>
+                        <div class="fog-low">
+                            <img src="http://demos.creative-tim.com/paper-kit-2/assets/img/fog-low.png" alt="fog">
+                        </div>
+                       
+                    </div>
+                    <h2 class="presentation-subtitle text-center">Empowering your future through education</h2>
+                </div>
+            </div>
+            <div class="moving-clouds" style="background-image: url('http://demos.creative-tim.com/paper-kit-2/assets/img/clouds.png');">
+            </div>
+        </div>
+    </div>
+        <!-- Content Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Paragraph Section -->
+            <div class="col-md-12 text-center mb-4">
+                <h2>Why Apply for Scholarships?</h2>
+                <p>
+                    Scholarships provide financial assistance to students for their education. 
+                    Whether you're pursuing higher studies, specializing in a field, or seeking vocational training, 
+                    scholarships ease the financial burden and help you focus on your academic goals.
+                </p>
+            </div>
+        </div>
+      <!-- Photo Cards Section -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Scholarship 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Merit-Based Scholarships</h5>
+                        <p class="card-text">Awarded to students who demonstrate academic excellence and outstanding performance.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Scholarship 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Need-Based Scholarships</h5>
+                        <p class="card-text">Designed for students who require financial support to achieve their dreams.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://via.placeholder.com/300x200" alt="Scholarship 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Category Scholarships</h5>
+                        <p class="card-text">Available for students from underrepresented communities or specific fields.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <footer class="text-center mt-5 py-4 bg-light">
+        <p>&copy; 2024 Scholarship Portal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Applications</title>
+    <style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7fc;
+        color: #333;
+        display: flex;
+        height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 250px;
+        background-color: #0e2433;
+        color: white;
+        padding: 20px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.6em;
+        color: #45b6fe;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin: 15px 0;
+        font-size: 1.2em;
+    }
+
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+        background-color: #3681b7;
+    }
+
+    /* Active Link Styling */
+    .sidebar ul li a.active {
+        background-color: #3681b7;
+    }
+
+    /* Container for content */
+    .container {
+        margin-left: 270px; /* Ensure the content is shifted to the right of the sidebar */
+        width: calc(100% - 270px);
+        padding: 30px;
+    }
+
+    /* Heading */
+    h1 {
+        text-align: center;
+        color: #45b6fe;
+        margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    thead {
+        background-color: #45b6fe; /* Table Header Background */
+        color: white;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    /* Style for Table Rows */
+    td {
+        font-size: 14px;
+    }
+
+    /* Action Links */
+    .actions a {
+        color: #3681b7;
+        text-decoration: none;
+        font-size: 1.2em;
+        margin-right: 10px;
+    }
+
+    .actions a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li><a href="/admin-page" >Dashboard</a></li>
+        <li><a href="/add-student">Add Admin</a></li>
+        <li><a href="/add-scholarship">Add Scholarship</a></li>
+        <li><a href="/view-scholarships">View Scholarships</a></li>
+        <li><a href="/viewusers">View Users</a></li>
+        <li><a href="/view-applications" class="active">View Applications</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Scholarship Applications</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+             <th>PhoneNumber</th>
+            <th>University ID</th>
+            <th>University Email</th>
+            <th>University Name</th>
+            <th>Scholarship ID</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the applications -->
+            <tr th:each="scholarshipApplication : ${applications}">
+                <td th:text="${scholarshipApplication.id}"></td>
+                <td th:text="${scholarshipApplication.name}"></td>
+                   <td th:text="${scholarshipApplication.phoneNumber}"></td>
+                
+                <td th:text="${scholarshipApplication.universityId}"></td>
+                <td th:text="${scholarshipApplication.universityEmail}"></td>
+                <td th:text="${scholarshipApplication.universityName}"></td>
+                <td th:text="${scholarshipApplication.scholarshipId}"></td>
+                <td th:text="${scholarshipApplication.status}"></td>
+              
+                
+                <td class="actions">
+                   <a th:href="@{/approve-application/{id}(id=${scholarshipApplication.id})}">Approve</a> |
+<a th:href="@{/reject-application/{id}(id=${scholarshipApplication.id})}">Reject</a>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

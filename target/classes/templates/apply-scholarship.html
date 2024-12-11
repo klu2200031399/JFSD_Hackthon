@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Scholarship</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #0e2433;
+            color: white;
+            padding: 20px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            color: #45b6fe;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #3681b7;
+        }
+
+        /* Content Area */
+        .container {
+            margin-left: 270px; /* Ensure the content is shifted to the right of the sidebar */
+            width: calc(100% - 270px);
+            padding: 20px;
+        }
+
+        /* Form Styling */
+        h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #d1d8e0;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0077b6;
+            box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0077b6;
+            color: #ffffff;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f8b;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .select-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-footer a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .form-footer a:hover {
+            color: #005f8b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a th:href="@{/user-page}" class="active">Home</a></li>
+           <li><a th:href="@{/view}">Preparation Books</a></li>
+            <li><a th:href="@{/apply-scholarship}" class="active">Apply for Scholarship</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <h1>Apply for Scholarship</h1>
+        <form action="#" th:action="@{/apply-scholarship}" th:object="${scholarshipApplication}" method="post">
+
+            <div class="form-group">
+                <label for="universityId">University ID:</label>
+                <input type="text" id="universityId" th:field="*{universityId}" placeholder="Enter your university ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="universityEmail">University Email:</label>
+                <input type="email" id="universityEmail" th:field="*{universityEmail}" placeholder="Enter your university email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" th:field="*{phoneNumber}" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group select-wrapper">
+                <label for="scholarshipId">Choose Scholarship:</label>
+                <select th:field="*{scholarshipId}" id="scholarshipId" required>
+                    <option value="" disabled selected>Select a scholarship</option>
+                    <option th:each="scholarship : ${scholarships}" th:value="${scholarship.id}" th:text="${scholarship.name}"></option>
+                </select>
+            </div>
+
+            <div class="form-group select-wrapper">
+                <label for="universityName">Choose University:</label>
+                <select th:field="*{universityName}" id="universityName" required>
+                    <option value="University A">University A</option>
+                    <option value="University B">University B</option>
+                    <option value="University C">University C</option>
+                    <option value="University D">University D</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+</body>
+</html>

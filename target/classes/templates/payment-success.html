@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <style>
+        /* Basic Styles for Success Page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .success-message {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .success-message h2 {
+            color: #45b6fe;
+        }
+
+        .success-message p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .success-message a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #45b6fe;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .success-message a:hover {
+            background-color: #3681b7;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-message">
+        <h2>Payment Successful</h2>
+        <p>Your transaction code is: <strong>${transactionCode}</strong></p>
+        <a href="/user-page">Go Back to Dashboard</a>
+    </div>
+</body>
+</html>

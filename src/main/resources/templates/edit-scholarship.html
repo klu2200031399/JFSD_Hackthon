@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Scholarship</title>
+</head>
+<body>
+    <h1>Edit Scholarship</h1>
+    <!-- Updated the form action to correctly submit the POST request to /edit-scholarship -->
+    <form action="#" th:action="@{/edit-scholarship}" th:object="${scholarship}" method="post">
+        <!-- Hidden field to preserve the scholarship ID -->
+        <input type="hidden" th:field="*{id}">
+
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required><br>
+
+        <label>Eligibility:</label>
+        <input type="text" th:field="*{eligibilityCriteria}" required><br>
+
+        <label>Description:</label>
+        <textarea th:field="*{description}" required></textarea><br>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
