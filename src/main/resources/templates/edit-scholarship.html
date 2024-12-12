@@ -2,22 +2,79 @@
 <html>
 <head>
     <title>Edit Scholarship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:active {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
-    <h1>Edit Scholarship</h1>
-    <!-- Updated the form action to correctly submit the POST request to /edit-scholarship -->
     <form action="#" th:action="@{/edit-scholarship}" th:object="${scholarship}" method="post">
+        <h1>Edit Scholarship</h1>
         <!-- Hidden field to preserve the scholarship ID -->
         <input type="hidden" th:field="*{id}">
 
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" required><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required>
 
-        <label>Eligibility:</label>
-        <input type="text" th:field="*{eligibilityCriteria}" required><br>
+        <label for="eligibility">Eligibility:</label>
+        <input type="text" id="eligibility" th:field="*{eligibilityCriteria}" required>
 
-        <label>Description:</label>
-        <textarea th:field="*{description}" required></textarea><br>
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}" required></textarea>
 
         <button type="submit">Update</button>
     </form>
